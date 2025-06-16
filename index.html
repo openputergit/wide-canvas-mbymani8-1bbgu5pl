@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Company</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom CSS */
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+
+        .navbar {
+            background-color: var(--primary-color);
+        }
+
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://v3.fal.media/files/lion/Xfcddt7iRbk_DBTt8pG-R_1000054542.webp');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            color: white;
+        }
+
+        .chatbot-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .chat-popup {
+            display: none;
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            width: 300px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .pdf-list {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .product-card {
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="https://v3.fal.media/files/lion/Xfcddt7iRbk_DBTt8pG-R_1000054542.webp" alt="Logo" height="40">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#resources">Resources</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section d-flex align-items-center">
+        <div class="container text-center">
+            <h1 class="display-4">Welcome to Our Company</h1>
+            <p class="lead">Innovative Solutions for Tomorrow's Challenges</p>
+            <a href="#products" class="btn btn-primary btn-lg">Explore Products</a>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Our Products</h2>
+            <div class="row">
+                <!-- Product Cards -->
+                <div class="col-md-4 mb-4">
+                    <div class="card product-card">
+                        <img src="https://via.placeholder.com/300" class="card-img-top" alt="Product 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Product 1</h5>
+                            <p class="card-text">Description of product 1 and its features.</p>
+                            <a href="#" class="btn btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add more product cards as needed -->
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">About Us</h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <p>Your company description and history goes here.</p>
+                </div>
+                <div class="col-lg-6">
+                    <img src="https://via.placeholder.com/500x300" class="img-fluid rounded" alt="About Us">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section id="resources" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Resources</h2>
+            <div class="pdf-list">
+                <div class="row" id="pdfList">
+                    <!-- PDF items will be dynamically loaded here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Contact Us</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <form id="contactForm">
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+                <div class="col-md-6">
+                    <div class="contact-info">
+                        <h4>Get in Touch</h4>
+                        <p>Email: info@company.com</p>
+                        <p>Phone: (123) 456-7890</p>
+                        <p>Address: 123 Business Street, City, Country</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chatbot Widget -->
+    <div class="chatbot-widget">
+        <button class="btn btn-primary rounded-circle" onclick="toggleChat()">
+            <i class="bi bi-chat-dots"></i> Chat
+        </button>
+    </div>
+
+    <!-- Chat Popup -->
+    <div id="chatPopup" class="chat-popup">
+        <div class="card">
+            <div class="card-header bg-primary text-white">AI Assistant
+                <button type="button" class="btn-close float-end" onclick="toggleChat()"></button>
+            </div>
+            <div class="card-body" style="height: 300px; overflow-y: auto;" id="chatMessages"></div>
+            <div class="card-footer">
+                <div class="input-group">
+                    <input type="text" class="form-control" id="userInput" placeholder="Type your message...">
+                    <button class="btn btn-primary" onclick="sendMessage()">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Chatbot functionality
+        function toggleChat() {
+            const popup = document.getElementById('chatPopup');
+            popup.style.display = popup.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('userInput');
+            const message = input.value.trim();
+            if (message) {
+                addMessage('user', message);
+                // Here you would typically make an API call to your AI service
+                simulateAIResponse();
+                input.value = '';
+            }
+        }
+
+        function addMessage(sender, text) {
+            const messages = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `d-flex ${sender === 'user' ? 'justify-content-end' : 'justify-content-start'} mb-2`;
+            messageDiv.innerHTML = `
+                <div class="p-2 ${sender === 'user' ? 'bg-primary' : 'bg-secondary'} text-white rounded">
+                    ${text}
+                </div>
+            `;
+            messages.appendChild(messageDiv);
+            messages.scrollTop = messages.scrollHeight;
+        }
+
+        function simulateAIResponse() {
+            setTimeout(() => {
+                addMessage('ai', 'Hello! How can I help you today?');
+            }, 1000);
+        }
+
+        // PDF Database simulation
+        const pdfFiles = [
+            { name: 'Product Catalog 2024', size: '2.5 MB' },
+            { name: 'Technical Specifications', size: '1.8 MB' },
+            { name: 'User Manual', size: '3.2 MB' }
+        ];
+
+        function displayPDFs() {
+            const pdfList = document.getElementById('pdfList');
+            pdfFiles.forEach(pdf => {
+                const pdfItem = document.createElement('div');
+                pdfItem.className = 'col-md-4 mb-3';
+                pdfItem.innerHTML = `
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">${pdf.name}</h5>
+                            <p class="card-text">Size: ${pdf.size}</p>
+                            <a href="#" class="btn btn-primary">Download</a>
+                        </div>
+                    </div>
+                `;
+                pdfList.appendChild(pdfItem);
+            });
+        }
+
+        // Initialize PDF list
+        window.onload = function() {
+            displayPDFs();
+        };
+    </script>
+<script>document.body.addEventListener('wheel', e => { if (!e.ctrlKey) return; e.preventDefault(); return }, { passive: false })</script>
+	</body>
+</html>
